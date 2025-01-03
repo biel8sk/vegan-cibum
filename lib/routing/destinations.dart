@@ -9,6 +9,6 @@ class Destination {
 
 const destinations = [
   BottomNavigationBarItem(label: 'Home', icon: Icon(Icons.home_outlined)),
-  BottomNavigationBarItem(label: 'Recipe', icon: Icon(Icons.receipt)),
+  BottomNavigationBarItem(label: 'Receita', icon: Icon(Icons.receipt)),
   BottomNavigationBarItem(label: 'Perfil', icon: Icon(Icons.person_2_rounded)),
 ];

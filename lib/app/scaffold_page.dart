@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:vegan_cibum/routing/destinations.dart';
 import 'package:vegan_cibum/ui/core/theme/theme.dart';
-import 'package:vegan_cibum/ui/home/home_screen.dart';
-import 'package:vegan_cibum/ui/recipe_page/recipe_page.dart';
-import 'package:vegan_cibum/ui/recipes_search/search_recipe_page.dart';
 
 class ScaffoldPage extends StatelessWidget {
   const ScaffoldPage({
@@ -25,7 +22,9 @@ class ScaffoldPage extends StatelessWidget {
         items: destinations.toList(),
         type: BottomNavigationBarType.fixed,
         landscapeLayout: BottomNavigationBarLandscapeLayout.centered,
+        
       ), 
+      
     );
   }
 }

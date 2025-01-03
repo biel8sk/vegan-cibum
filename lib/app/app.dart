@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:vegan_cibum/routing/router.dart';
-import 'package:vegan_cibum/routing/routes.dart';
 import 'package:vegan_cibum/ui/core/theme/theme.dart';
 
 class MyApp extends StatelessWidget {
