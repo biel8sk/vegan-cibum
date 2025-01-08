@@ -20,7 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
         title: TextField(
           decoration: InputDecoration(
             hintText: 'O que você quer hoje?',
-            prefixIcon: Icon(Icons.search),
+            prefixIcon: const Icon(Icons.search),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(20),
               borderSide: BorderSide.none,
@@ -31,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         actions: [
           IconButton(
-            icon: Icon(
+            icon: const Icon(
               Icons.dark_mode,
               color: Colors.white70,
             ),
