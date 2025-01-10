@@ -1,22 +1,23 @@
 import 'dart:convert';
 
-import 'package:flutter/rendering.dart';
+import 'package:http/http.dart';
 import 'package:vegan_cibum/data/models/recipe_model.dart';
-import 'package:vegan_cibum/data/repository/recipe_use_case_repository.dart';
-import 'package:http/http.dart' as http;
+import 'package:vegan_cibum/data/repository/recipe_repository.dart';
 
 
-class ApiService implements IRecipeUseCaseRepository{
+
+class ApiServiceHttp implements IRecipeRepository{
 
   final String _baseUrl;
+  final Client client;
 
-  ApiService(this._baseUrl);
+  ApiServiceHttp(this._baseUrl, this.client);
 
   
   @override
   Future<List<RecipeModel>> fetchRecipe()async {
     final url = _baseUrl;
-    var response  = await http.get(Uri.parse(url));
+    var response  = await client.get(Uri.parse(url));
     if(response.statusCode == 200){
       final data = jsonDecode(response.body);
       final listRecipe = (data['results']as List).map((recipe) => RecipeModel.fromJson(recipe)).toList();

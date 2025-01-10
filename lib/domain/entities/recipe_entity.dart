@@ -1,16 +1,11 @@
-class RecipeEntity {
+class Recipe {
   final String id;
   final String picture;
   final String title;
-  final String dificulty;
-  final List<String> ingredients;
-  final List<String> instructions;
 
-  RecipeEntity(
+
+  Recipe(
     {required this.id,
     required this.picture,
-    required this.title, 
-    required this.dificulty, 
-    required this.ingredients,
-    required this.instructions});
+    required this.title,});
 }
