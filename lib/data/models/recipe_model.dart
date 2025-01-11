@@ -9,7 +9,7 @@ class RecipeModel extends Recipe{
     factory RecipeModel.fromJson(dynamic data){
       return RecipeModel(
         id: data['id'], 
-        picture: data['picture'], 
+        picture: data['image'], 
         title: data['title'], 
       );
     }

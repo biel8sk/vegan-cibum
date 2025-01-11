@@ -9,10 +9,10 @@ class NutritionModel extends Nutrition{
 
   factory NutritionModel.fromJson(Map<String, dynamic> json) {
     return NutritionModel(
-      calories: json['calories'],
-      protein: json['protein'],
-      fat: json['fat'],
-      carbohydrates: json['carbohydrates'],
+      calories: json['calories'] * 1.0,
+      protein: json['protein'] *1.0,
+      fat: json['fat']*1.0,
+      carbohydrates: json['carbohydrates']*1.0,
     );
   }
 }

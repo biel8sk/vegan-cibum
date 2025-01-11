@@ -1,3 +1,4 @@
+const String jsonDetailrecipe = '''
 {
   "id": 1,
   "title": "Vegan Pancakes",
@@ -14,3 +15,4 @@
     "carbohydrates": 45
   }
 }
+''';
