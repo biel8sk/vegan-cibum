@@ -4,15 +4,15 @@ import 'package:http/http.dart';
 import 'package:vegan_cibum/api_key.dart';
 import 'package:vegan_cibum/data/models/recipe_detail_model.dart';
 import 'package:vegan_cibum/data/models/recipe_model.dart';
-import 'package:vegan_cibum/data/repository/recipe_repository.dart';
+import 'package:vegan_cibum/data/repository/i_recipe_repository.dart';
 
 
 
-class ApiServiceHttp implements IRecipeRepository{
+class RecipeRepository implements IRecipeRepository{
 
-  final Client client;
+  Client client;
 
-  ApiServiceHttp(this.client);
+  RecipeRepository([Client? externalClient]) : client = externalClient ?? Client();
 
   
   @override
