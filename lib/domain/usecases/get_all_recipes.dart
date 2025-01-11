@@ -5,8 +5,8 @@ class GetAllRecipes {
   final IRecipeRepository repository;
   GetAllRecipes({required this.repository});
 
-  Future<List<RecipeModel>> getRecipes() async {
-    final result = await repository.fetchRecipe();
+  Future<List<RecipeModel>> getRecipes(int qnt) async {
+    final result = await repository.fetchRecipe(qnt);
     return result;
   }
 }
