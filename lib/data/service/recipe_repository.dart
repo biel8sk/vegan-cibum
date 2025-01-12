@@ -13,7 +13,6 @@ class RecipeRepository implements IRecipeRepository{
   Client client;
 
   RecipeRepository([Client? externalClient]) : client = externalClient ?? Client();
-
   
   @override
   Future<List<RecipeModel>> fetchRecipe(int qnt)async {

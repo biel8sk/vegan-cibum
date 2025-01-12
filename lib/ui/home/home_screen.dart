@@ -10,6 +10,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  static const double myBorder = 30;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -85,10 +86,10 @@ class _HomeScreenState extends State<HomeScreen> {
           // categorias
           Expanded(
             child: ListView(
-              padding: EdgeInsets.all(16),
               children: [
                 _buildCategoryFood(
                   context,
+                  shape: const RoundedRectangleBorder(borderRadius: BorderRadius.only(topLeft: Radius.circular(myBorder) ,bottomLeft: Radius.circular(myBorder))),
                   title: "Variedade",
                   description: "Mais de 1000 receitas diferentes",
                   icon: Icons.restaurant,
@@ -96,6 +97,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 _buildCategoryFood(
                   context,
+                  shape: const RoundedRectangleBorder(borderRadius: BorderRadius.only(topRight: Radius.circular(myBorder) ,bottomRight: Radius.circular(myBorder))),
                   title: "Saúde",
                   description: "Informações nutricionais",
                   icon: Icons.health_and_safety_outlined,
@@ -103,6 +105,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 _buildCategoryFood(
                   context,
+                  shape: const RoundedRectangleBorder(borderRadius: BorderRadius.only(topLeft: Radius.circular(myBorder) ,bottomLeft: Radius.circular(myBorder))),
                   title: "Confiabilidade",
                   description: "Dados disponibilizados de uma API",
                   icon: Icons.content_paste_search_rounded,
@@ -110,6 +113,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 _buildCategoryFood(
                   context,
+                  shape: const RoundedRectangleBorder(borderRadius: BorderRadius.only(topRight: Radius.circular(myBorder) ,bottomRight: Radius.circular(myBorder))),
                   title: "Vamos conzinhar",
                   description: "Check nossa variedade",
                   icon: Icons.add_task_outlined,
@@ -145,18 +149,18 @@ Widget _buildCategoryFood(
   required String description,
   required IconData icon,
   required Color color,
+  required ShapeBorder shape,
   
 }) {
   return Card(
-    shape: const RoundedRectangleBorder(
-      borderRadius: BorderRadius.all(Radius.circular(20))
-    ),
+    shape: shape,
     child: ListTile(
+      titleAlignment: ListTileTitleAlignment.center,      
       leading: CircleAvatar(
         backgroundColor: color,
         child: Icon(icon),
       ),
-      title: Text(title, style: const TextStyle(fontWeight: FontWeight.bold),),
+      title: Text(title, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 25),),
       subtitle: Text(description),
       onTap: () {
         //navega para página de receitas
