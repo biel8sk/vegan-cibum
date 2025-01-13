@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:vegan_cibum/ui/core/shered/widgets/app_bar_widget.dart';
 import 'package:vegan_cibum/ui/core/theme/theme.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -15,33 +16,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: mytheme.primaryColor,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        title: TextField(
-          decoration: InputDecoration(
-            hintText: 'O que você quer hoje?',
-            prefixIcon: const Icon(Icons.search),
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(20),
-              borderSide: BorderSide.none,
-            ),
-            filled: true,
-            fillColor: Colors.grey[200],
-          ),
-        ),
-        actions: [
-          IconButton(
-            icon: const Icon(
-              Icons.dark_mode,
-              color: Colors.white70,
-            ),
-            onPressed: () {
-              // Aqui chamaria a ViewModel para alternar o modo
-            },
-          ),
-        ],
-      ),
+      appBar: AppBarWidget(),
       body: Column(
         children: [
           //prato do dia
@@ -77,9 +52,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    _buildPlateOfDay("Prato do dia", 35),
-                    _buildPlateOfDay("Strogonoff de cogumello", 25),
-                    _buildPlateOfDay("50 min | Dificuldade: fácil", 18)
+                    buildPlateOfDay("Prato do dia", 35),
+                    buildPlateOfDay("Strogonoff de cogumello", 25),
+                    buildPlateOfDay("50 min | Dificuldade: fácil", 18)
                   ],
                 )),
           ]),
@@ -128,7 +103,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
-Widget _buildPlateOfDay(String text, double fontSize) {
+Widget buildPlateOfDay(String text, double fontSize) {
   return TextButton(
     onPressed: () {
       // chama a receita do dia
