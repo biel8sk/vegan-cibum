@@ -8,10 +8,15 @@ class RecipePegeViewModel extends ChangeNotifier {
   RecipePegeViewModel(this.repository);
 
   final List<Recipe> listRecipes = [];
+  bool isLoading = false;
 
   Future<void> getRecipes() async {
+
+    isLoading = true;
+
     final list = await repository.getRecipes(100);
     listRecipes.addAll(list);
+    isLoading = false;
     notifyListeners();
   }
 }
