@@ -16,7 +16,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: mytheme.primaryColor,
-      appBar: AppBarWidget(),
+      appBar: const AppBarWidget(),
       body: Column(
         children: [
           //prato do dia
@@ -64,35 +64,35 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 _buildCategoryFood(
                   context,
-                  shape: const RoundedRectangleBorder(borderRadius: BorderRadius.only(topLeft: Radius.circular(myBorder) ,bottomLeft: Radius.circular(myBorder))),
+                  shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(myBorder))),
                   title: "Variedade",
                   description: "Mais de 1000 receitas diferentes",
                   icon: Icons.restaurant,
-                  color: Colors.white,
+                  color: Colors.white, isRight: false
                 ),
                 _buildCategoryFood(
                   context,
-                  shape: const RoundedRectangleBorder(borderRadius: BorderRadius.only(topRight: Radius.circular(myBorder) ,bottomRight: Radius.circular(myBorder))),
+                  shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(myBorder))),
                   title: "Saúde",
                   description: "Informações nutricionais",
                   icon: Icons.health_and_safety_outlined,
-                  color: Colors.white,
+                  color: Colors.white, isRight: false,
                 ),
                 _buildCategoryFood(
                   context,
-                  shape: const RoundedRectangleBorder(borderRadius: BorderRadius.only(topLeft: Radius.circular(myBorder) ,bottomLeft: Radius.circular(myBorder))),
+                  shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(myBorder))),
                   title: "Confiabilidade",
                   description: "Dados disponibilizados de uma API",
                   icon: Icons.content_paste_search_rounded,
-                  color: Colors.white,
+                  color: Colors.white, isRight: true
                 ),
                 _buildCategoryFood(
                   context,
-                  shape: const RoundedRectangleBorder(borderRadius: BorderRadius.only(topRight: Radius.circular(myBorder) ,bottomRight: Radius.circular(myBorder))),
-                  title: "Vamos conzinhar",
+                  shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(myBorder))),
+                  title: "Vamos cozinhar",
                   description: "Check nossa variedade",
                   icon: Icons.add_task_outlined,
-                  color: Colors.white,
+                  color: Colors.white, isRight: false,
                 ),
               ],
             ),
@@ -120,6 +120,7 @@ Widget buildPlateOfDay(String text, double fontSize) {
 
 Widget _buildCategoryFood(
   BuildContext context, {
+  required bool isRight,
   required String title,
   required String description,
   required IconData icon,
@@ -130,12 +131,15 @@ Widget _buildCategoryFood(
   return Card(
     shape: shape,
     child: ListTile(
-      titleAlignment: ListTileTitleAlignment.center,      
       leading: CircleAvatar(
         backgroundColor: color,
         child: Icon(icon),
       ),
-      title: Text(title, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 25),),
+      trailing: CircleAvatar(
+        backgroundColor: color,
+        child: Icon(icon),
+      ),
+      title: Text(title, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 25,),),
       subtitle: Text(description),
       onTap: () {
         //navega para página de receitas

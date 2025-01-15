@@ -22,7 +22,8 @@ class ScaffoldPage extends StatelessWidget {
         items: destinations.toList(),
         type: BottomNavigationBarType.fixed,
         landscapeLayout: BottomNavigationBarLandscapeLayout.centered,
-        
+        selectedFontSize: 20,
+        unselectedItemColor: Colors.black54,
       ), 
       
     );

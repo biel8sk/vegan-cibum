@@ -9,7 +9,6 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
       backgroundColor: Colors.transparent,
       elevation: 0,
       title: TextFormField(
-        
         decoration: InputDecoration(
           hintText: 'O que você quer hoje?',
           prefixIcon: const Icon(Icons.search),
