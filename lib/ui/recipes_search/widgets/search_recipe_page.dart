@@ -45,7 +45,7 @@ class _SearchRecipePageState extends State<SearchRecipePage> {
                       return RecipeCard(
                         recipe: recipe,
                         onTap: () {
-                          context.go('/search/recipe/${recipe.id}');
+                          context.go('/search/${recipe.id}');
                         },
                       );
                     },

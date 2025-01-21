@@ -17,7 +17,7 @@ class RecipePageViewModel extends ChangeNotifier {
     notifyListeners();
 
     try {
-      final list = await repository.getRecipes(20);
+      final list = await repository.getRecipes(10);
       _listRecipes.clear();
       _listRecipes.addAll(list);
     } catch (e) {

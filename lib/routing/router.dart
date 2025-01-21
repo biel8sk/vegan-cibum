@@ -33,12 +33,13 @@ final router = GoRouter(
               builder: (context, state) => SearchRecipePage(),
               routes: [
                 GoRoute(
-          path: ':recipeId',
-          builder: (context, state) {
-            final recipeId = int.parse(state.pathParameters['recipeId']!); // Obtém o ID
-            return RecipeDetailPage(id: recipeId); // Passa o ID
-          },
-        ),
+                  path: ':recipeId',
+                  builder: (context, state) {
+                    final recipeId = int.parse(
+                        state.pathParameters['recipeId']!); // Obtém o ID
+                    return RecipeDetailPage(id: recipeId); // Passa o ID
+                  },
+                ),
               ],
             ),
           ],
