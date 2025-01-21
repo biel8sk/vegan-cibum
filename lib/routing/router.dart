@@ -4,7 +4,7 @@ import 'package:vegan_cibum/app/scaffold_page.dart';
 import 'package:vegan_cibum/routing/routes.dart';
 import 'package:vegan_cibum/ui/auth/widgets/perfil_page.dart';
 import 'package:vegan_cibum/ui/home/home_screen.dart';
-import 'package:vegan_cibum/ui/recipe_page/widgets/recipe_page.dart';
+import 'package:vegan_cibum/ui/recipe_datail_page/widgets/recipe_datail_page.dart';
 import 'package:vegan_cibum/ui/recipes_search/widgets/search_recipe_page.dart';
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'root');
@@ -33,9 +33,12 @@ final router = GoRouter(
               builder: (context, state) => SearchRecipePage(),
               routes: [
                 GoRoute(
-                  path: MyRoutes.recipePage,
-                  builder: (context, state) => const RecipePage(),
-                ),
+          path: ':recipeId',
+          builder: (context, state) {
+            final recipeId = int.parse(state.pathParameters['recipeId']!); // Obtém o ID
+            return RecipeDetailPage(id: recipeId); // Passa o ID
+          },
+        ),
               ],
             ),
           ],
