@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:vegan_cibum/ui/core/shered/widgets/app_bar_widget.dart';
-import 'package:vegan_cibum/ui/core/theme/theme.dart';
+import 'package:vegan_cibum/ui/core/shered/theme/theme.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -66,33 +66,29 @@ class _HomeScreenState extends State<HomeScreen> {
                   context,
                   shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(myBorder))),
                   title: "Variedade",
-                  description: "Mais de 1000 receitas diferentes",
+                  description: "Diferentes pratos para você degustar",
                   icon: Icons.restaurant,
-                  color: Colors.white, isRight: false
                 ),
                 _buildCategoryFood(
                   context,
                   shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(myBorder))),
                   title: "Saúde",
-                  description: "Informações nutricionais",
+                  description: "Informações nutricionais incluídas",
                   icon: Icons.health_and_safety_outlined,
-                  color: Colors.white, isRight: false,
                 ),
                 _buildCategoryFood(
                   context,
                   shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(myBorder))),
                   title: "Confiabilidade",
-                  description: "Dados disponibilizados de uma API",
+                  description: "Instruções de como fazer a receita",
                   icon: Icons.content_paste_search_rounded,
-                  color: Colors.white, isRight: true
                 ),
                 _buildCategoryFood(
                   context,
                   shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(myBorder))),
-                  title: "Vamos cozinhar",
-                  description: "Check nossa variedade",
+                  title: "Facilidade",
+                  description: "Pesquise por ingrediente ou nutrição",
                   icon: Icons.add_task_outlined,
-                  color: Colors.white, isRight: false,
                 ),
               ],
             ),
@@ -120,11 +116,9 @@ Widget buildPlateOfDay(String text, double fontSize) {
 
 Widget _buildCategoryFood(
   BuildContext context, {
-  required bool isRight,
   required String title,
   required String description,
   required IconData icon,
-  required Color color,
   required ShapeBorder shape,
   
 }) {
@@ -132,11 +126,10 @@ Widget _buildCategoryFood(
     shape: shape,
     child: ListTile(
       leading: CircleAvatar(
-        backgroundColor: color,
         child: Icon(icon),
       ),
       trailing: CircleAvatar(
-        backgroundColor: color,
+        
         child: Icon(icon),
       ),
       title: Text(title, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 25,),),

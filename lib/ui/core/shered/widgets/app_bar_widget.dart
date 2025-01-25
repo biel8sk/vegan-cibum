@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:vegan_cibum/ui/core/shered/view_model/shered_view_model.dart';
+import 'package:vegan_cibum/ui/recipe_datail_page/widgets/recipe_datail_page.dart';
 
 class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   const AppBarWidget({super.key,});
@@ -6,7 +9,6 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: Colors.transparent,
       elevation: 0,
       title: TextFormField(
         decoration: InputDecoration(
@@ -17,7 +19,6 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
             borderSide: BorderSide.none,
           ),
           filled: true,
-          fillColor: Colors.grey[200],
         ),
       ),
       actions: [
@@ -28,7 +29,7 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
             ),
             onPressed: () {
               // Aqui chamaria a ViewModel para alternar o modo
-              
+              context.read<SheredViewModel>().toggleTheme();
             },
           ),
       ],

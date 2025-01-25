@@ -3,8 +3,10 @@ import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:vegan_cibum/data/service/recipe_repository.dart';
 import 'package:vegan_cibum/domain/usecases/get_all_recipes.dart';
+import 'package:vegan_cibum/domain/usecases/get_detail_recipe.dart';
 import 'package:vegan_cibum/routing/destinations.dart';
-import 'package:vegan_cibum/ui/core/theme/theme.dart';
+import 'package:vegan_cibum/ui/core/shered/theme/theme.dart';
+import 'package:vegan_cibum/ui/recipe_datail_page/view_model/recipe_view_model.dart';
 import 'package:vegan_cibum/ui/recipes_search/view_model/search_pege_view_model.dart';
 
 class ScaffoldPage extends StatelessWidget {
@@ -25,7 +27,14 @@ class ScaffoldPage extends StatelessWidget {
               repository: RecipeRepository(),
             ),
           ),
-          //child: SearchRecipePage(),
+          
+        ),
+        ChangeNotifierProvider(
+          create: (_) => RecipeDetailViewModel(
+            GetDetailRecipe(
+              RecipeRepository(),
+            ),
+          ),
         ),
       ],
       child: Scaffold(
@@ -33,12 +42,11 @@ class ScaffoldPage extends StatelessWidget {
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: navigationShell.currentIndex,
           onTap: navigationShell.goBranch,
-          selectedItemColor: mytheme.primaryColor,
+          selectedItemColor: mytheme.colorScheme.onPrimary,
           items: destinations.toList(),
           type: BottomNavigationBarType.fixed,
           landscapeLayout: BottomNavigationBarLandscapeLayout.centered,
           selectedFontSize: 20,
-          unselectedItemColor: Colors.black54,
         ),
       ),
     );

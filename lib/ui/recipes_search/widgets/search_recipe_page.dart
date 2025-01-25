@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:vegan_cibum/ui/core/shered/widgets/app_bar_widget.dart';
-import 'package:vegan_cibum/ui/core/theme/theme.dart';
+import 'package:vegan_cibum/ui/core/shered/theme/theme.dart';
 import 'package:vegan_cibum/ui/recipes_search/view_model/search_pege_view_model.dart';
 import 'package:vegan_cibum/ui/recipes_search/widgets/recipe_card.dart';
 
