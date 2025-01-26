@@ -36,20 +36,15 @@ class RecipeDetailPage extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Image.network(viewModel.recipeDetail!.picture, fit: BoxFit.cover),
+                          Image.network(viewModel.recipeDetail!.image, fit: BoxFit.cover),
                           const SizedBox(height: 8),
                           Text(
                             viewModel.recipeDetail!.title,
                             style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                           ),
                           const SizedBox(height: 16),
-                          Text(
-                            viewModel.recipeDetail!.ingredients.toString(),
-                            style: const TextStyle(fontSize: 16),
-                          ),
-                          const SizedBox(height: 16),
                           const Text("Instruções:", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-                          Text(viewModel.recipeDetail!.intructions),
+                          Text(viewModel.recipeDetail!.instructions ?? ''),
                           const SizedBox(height: 16),
                           const Text("Informações Nutricionais:", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
                           

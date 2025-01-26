@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:vegan_cibum/ui/core/shered/view_model/shered_view_model.dart';
-import 'package:vegan_cibum/ui/recipe_datail_page/widgets/recipe_datail_page.dart';
 
 class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   const AppBarWidget({super.key,});
@@ -37,6 +36,5 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   }
   
   @override
-  // TODO: implement preferredSize
   Size get preferredSize => const Size.fromHeight(55);
 }

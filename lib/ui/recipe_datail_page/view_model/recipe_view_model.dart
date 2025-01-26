@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:vegan_cibum/domain/entities/recipe_detail_entity.dart';
+import 'package:vegan_cibum/domain/entities/recipe_information_entity.dart';
 import 'package:vegan_cibum/domain/usecases/get_detail_recipe.dart';
 
 class RecipeDetailViewModel extends ChangeNotifier {
@@ -7,11 +7,11 @@ class RecipeDetailViewModel extends ChangeNotifier {
 
   RecipeDetailViewModel(this.repository);
 
-  RecipeDetailEntity? _recipeDetail;
+  RecipeInformation? _recipeDetail;
   String? _errorMessage;
   bool _isLoading = false;
 
-  RecipeDetailEntity? get recipeDetail => _recipeDetail;
+  RecipeInformation? get recipeDetail => _recipeDetail;
   String? get errorMessage => _errorMessage;
   bool get isLoading => _isLoading;
 

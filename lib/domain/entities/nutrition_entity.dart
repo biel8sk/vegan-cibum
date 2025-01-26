@@ -1,13 +1,7 @@
-class Nutrition {
-  final double calories;
-  final double protein;
-  final double fat;
-  final double carbohydrates;
+import 'package:vegan_cibum/domain/entities/nutrient_entity.dart';
 
-  Nutrition({
-    required this.calories,
-    required this.protein,
-    required this.fat,
-    required this.carbohydrates,
-  });
+class Nutrition {
+  final List<Nutrient> nutrients;
+
+  Nutrition({required this.nutrients});
 }
