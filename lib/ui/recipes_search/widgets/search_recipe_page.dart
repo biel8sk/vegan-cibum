@@ -17,41 +17,45 @@ class _SearchRecipePageState extends State<SearchRecipePage> {
 
   @override
   void initState()  {
+    WidgetsBinding.instance.addPostFrameCallback((_) => _loadRecipes());
     super.initState();
-    _loadRecipes();
+    
   }
 
   Future<void> _loadRecipes() async {
     final viewModel = context.read<RecipePageViewModel>();
     await viewModel.getRecipes(); // Aguarda o carregamento completo
   }
+ 
 
   @override
   Widget build(BuildContext context) {
-    final viewModel = context.watch<RecipePageViewModel>();
 
-    return Scaffold(
-      backgroundColor: mytheme.primaryColor,
-      appBar: const AppBarWidget(),
-      body:
-
-            viewModel.isLoading
-                ? const Center(child: CircularProgressIndicator())
-                : ListView.builder(
-                    itemCount: viewModel.recipes.length,
-                    itemBuilder: (context, index) {
-                      final recipe = viewModel.recipes[index];
-
-                      return RecipeCard(
-                        recipe: recipe,
-                        onTap: () async {
-                          
-                          context.go('/search/${recipe.id}');
-                        },
-                      );
-                    },
-                  ),
+    return Consumer<RecipePageViewModel>(
+      builder: (context, viewModel, child) => 
+      Scaffold(
+        backgroundColor: mytheme.primaryColor,
+        appBar: const AppBarWidget(),
+        body:
       
+              viewModel.isLoading
+                  ? const Center(child: CircularProgressIndicator())
+                  : ListView.builder(
+                      itemCount: viewModel.recipes.length,
+                      itemBuilder: (context, index) {
+                        final recipe = viewModel.recipes[index];
+      
+                        return RecipeCard(
+                          recipe: recipe,
+                          onTap: () async {
+                            
+                            context.go('/search/${recipe.id}');
+                          },
+                        );
+                      },
+                    ),
+        
+      ),
     );
   }
 }

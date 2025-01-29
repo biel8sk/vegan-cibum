@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vegan_cibum/domain/entities/recipe_information_entity.dart';
 import 'package:vegan_cibum/domain/usecases/get_detail_recipe.dart';
+import 'package:vegan_cibum/ui/core/fake.dart';
 
 class RecipeDetailViewModel extends ChangeNotifier {
   final GetDetailRecipe repository;
@@ -21,8 +22,10 @@ class RecipeDetailViewModel extends ChangeNotifier {
     
 
     try {
-      _recipeDetail = await repository.getDetail(id);
-      print(_recipeDetail);
+      
+      await Future.delayed(const Duration(seconds: 2));
+      _recipeDetail = sampleRecipeInformation;
+
     } catch (e) {
       _errorMessage = "Erro ao carregar detalhes: $e";
     } finally {

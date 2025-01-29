@@ -15,8 +15,9 @@ class _RecipeDetailPageState extends State<RecipeDetailPage> {
 
   @override
   void initState() {
+    WidgetsBinding.instance.addPostFrameCallback((_) => loadDetails());
     super.initState();
-    loadDetails();
+    
   }
 
   Future<void> loadDetails() async {

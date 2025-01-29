@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vegan_cibum/domain/entities/recipe_entity.dart';
 import 'package:vegan_cibum/domain/usecases/get_all_recipes.dart';
+import 'package:vegan_cibum/ui/core/fake.dart';
 
 class RecipePageViewModel extends ChangeNotifier {
   final GetAllRecipes repository;
@@ -14,17 +15,16 @@ class RecipePageViewModel extends ChangeNotifier {
 
   Future<void> getRecipes() async {
     isLoading = true;
-    //notifyListeners();
+    notifyListeners();
 
     try {
-      final list = await repository.getRecipes(10);
-      _listRecipes.clear();
-      _listRecipes.addAll(list);
+      await Future.delayed(const Duration(seconds: 2));
+      _listRecipes.addAll(sampleRecipes);
     } catch (e) {
       debugPrint('Erro ao carregar receitas: $e');
     } finally {
       isLoading = false;
-      //notifyListeners();
+      notifyListeners();
     }
   }
 }
