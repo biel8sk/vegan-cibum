@@ -7,6 +7,7 @@ import 'package:mockito/annotations.dart';
 import 'package:vegan_cibum/data/models/recipe_model.dart';
 import 'package:vegan_cibum/data/service/recipe_repository.dart';
 
+import 'mocks/mock_recipe_detail.dart';
 import 'mocks/mock_recipe_list.dart';
 
 @GenerateNiceMocks([MockSpec<http.Client>()])
@@ -31,14 +32,16 @@ void main() {
     });
 
     test("deve retornar informações da receita", ()async {
-      final mockClient = http.Client();
-
+      final mockClient = MockClient((response)  async => Response(jsonDetailrecipe, 200));
       final repository = RecipeRepository(mockClient);
 
       final detailRecipe = await repository.getDetailRecipe(716429);
 
       //verifica se o nome é igual 
       expect(detailRecipe.title, 'Pasta with Garlic, Scallions, Cauliflower & Breadcrumbs');
+
+      //verifica se o tempo de preparo está correto 
+      expect(detailRecipe.readyInMinutes, 45);
     });
   });
 }

@@ -1,56 +1,57 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:vegan_cibum/ui/recipe_datail_page/view_model/recipe_view_model.dart';
+import 'package:vegan_cibum/ui/recipe_datail_page/widgets/details_widget.dart';
 
-class RecipeDetailPage extends StatelessWidget {
+class RecipeDetailPage extends StatefulWidget {
   const RecipeDetailPage({super.key, required this.id});
   final int id;
 
   @override
-  Widget build(BuildContext context) {
-    final viewModel = context.watch<RecipeDetailViewModel>();
+  State<RecipeDetailPage> createState() => _RecipeDetailPageState();
+}
 
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Detalhes da Receita'),
-      ),
-      body: viewModel.isLoading
-          ? const Center(child: CircularProgressIndicator())
-          : viewModel.errorMessage != null
-              ? Center(
-                  child: Text(
-                    viewModel.errorMessage!,
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(color: Colors.red, fontSize: 16),
-                  ),
-                )
-              : viewModel.recipeDetail == null
-                  ? const Center(
-                      child: Text(
-                        "Detalhes da receita não encontrados.",
-                        style: TextStyle(fontSize: 16),
-                      ),
-                    )
-                  : Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Image.network(viewModel.recipeDetail!.image, fit: BoxFit.cover),
-                          const SizedBox(height: 8),
-                          Text(
-                            viewModel.recipeDetail!.title,
-                            style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                          ),
-                          const SizedBox(height: 16),
-                          const Text("Instruções:", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-                          Text(viewModel.recipeDetail!.instructions ?? ''),
-                          const SizedBox(height: 16),
-                          const Text("Informações Nutricionais:", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-                          
-                        ],
-                      ),
+class _RecipeDetailPageState extends State<RecipeDetailPage> {
+
+  @override
+  void initState() {
+    super.initState();
+    loadDetails();
+  }
+
+  Future<void> loadDetails() async {
+    final provider = context.read<RecipeDetailViewModel>();
+    await provider.getDetail(widget.id);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+
+    return Consumer<RecipeDetailViewModel>(
+      builder: (context, viewModel, child) => 
+      Scaffold(
+        appBar: AppBar(
+          title: const Text('Detalhes da Receita'),
+        ),
+        body: viewModel.isLoading
+            ? const Center(child: CircularProgressIndicator())
+            : viewModel.errorMessage != null
+                ? Center(
+                    child: Text(
+                      viewModel.errorMessage!,
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(color: Colors.red, fontSize: 16),
                     ),
+                  )
+                : viewModel.recipeDetail == null
+                    ? const Center(
+                        child: Text(
+                          "Detalhes da receita não encontrados.",
+                          style: TextStyle(fontSize: 16),
+                        ),
+                      )
+                    : DetailsWidget(recipeInformation: viewModel.recipeDetail!),
+      ),
     );
   }
 }

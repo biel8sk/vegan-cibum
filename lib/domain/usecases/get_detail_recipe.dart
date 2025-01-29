@@ -8,6 +8,7 @@ class GetDetailRecipe {
   Future<RecipeInformation?> getDetail(int id) async {
     try {
       final datails = await recipeRepository.getDetailRecipe(id);
+      print(datails);
       return datails;
     }on Exception catch (e){
       print("Erro no service: $e");

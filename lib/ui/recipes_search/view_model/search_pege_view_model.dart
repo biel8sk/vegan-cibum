@@ -14,7 +14,7 @@ class RecipePageViewModel extends ChangeNotifier {
 
   Future<void> getRecipes() async {
     isLoading = true;
-    notifyListeners();
+    //notifyListeners();
 
     try {
       final list = await repository.getRecipes(10);
@@ -24,7 +24,7 @@ class RecipePageViewModel extends ChangeNotifier {
       debugPrint('Erro ao carregar receitas: $e');
     } finally {
       isLoading = false;
-      notifyListeners();
+      //notifyListeners();
     }
   }
 }

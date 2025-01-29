@@ -1,4 +1,4 @@
-const String jsonDetailrecipe = '''
+const String jsonDeteilrecipe = '''
 {
     "id": 716429,
     "title": "Pasta with Garlic, Scallions, Cauliflower & Breadcrumbs",

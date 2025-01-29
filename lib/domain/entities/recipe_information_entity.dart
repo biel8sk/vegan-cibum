@@ -8,8 +8,10 @@ class RecipeInformation {
   final List<String> extendedIngredients;
   final Nutrition? nutrition;
   final String? summary;
+  final int readyInMinutes;
 
-  RecipeInformation({
+  RecipeInformation( {
+    required this.readyInMinutes,
     required this.id,
     required this.title,
     required this.image,
