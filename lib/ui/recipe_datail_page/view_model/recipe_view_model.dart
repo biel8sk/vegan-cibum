@@ -19,11 +19,12 @@ class RecipeDetailViewModel extends ChangeNotifier {
   Future<void> getDetail(int id) async {
     _isLoading = true;
     _errorMessage = null;
+    notifyListeners();
     
 
     try {
       
-      await Future.delayed(const Duration(seconds: 2));
+      await Future.delayed(const Duration(seconds: 1));
       _recipeDetail = sampleRecipeInformation;
 
     } catch (e) {
