@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "377762902302",
+    "project_id": "vegan-app-aeac0",
+    "storage_bucket": "vegan-app-aeac0.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:377762902302:android:f0b20bbfb852e537a5d90f",
+        "android_client_info": {
+          "package_name": "com.example.vegan_cibum"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClcTpBf_2xYZH5go6kZc0tZNfL-tTTBUI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
