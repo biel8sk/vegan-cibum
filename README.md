@@ -1,16 +1,18 @@
-# vegan_cibum
+# vegan_cibum ☘️
 
-Aplicativo flutter que exibe receitas veganas feito com arquitetura MVVM 
+Aplicativo feito em flutter e MVVM que exibe receitas veganas. 
 
 ## Aprendizado 
+<ul>
+  <li>Roteamento de telas com GoRouter;</li>
+  <li>Troca de temas dinâmicos com facilidade;</li>
+  <li>Separação de responsabilidades;</li>
+  <li>Repository para desacoplamento;</li>
+  <li>Gerenciamento de estado com Provider</li>
+</ul>
 
-Roteamento de telas com GoRouter
-Troca de temas dinâmicos com facilidade
-Separação de responsabilidades 
-Desenvolvimento em prol de uma causa 
 
-### API utilizada
 
-https://api.spoonacular.com
+
 
 
