@@ -4,4 +4,5 @@ class MyRoutes {
   static const String recipePage = '/recipe';
   static const String searchPage = '/search';
   static const String profilePage = '/profile';
+  static const String signIn = '/signIn';
 }
