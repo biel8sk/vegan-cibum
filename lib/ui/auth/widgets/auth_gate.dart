@@ -1,7 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart' hide EmailAuthProvider;
 import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:vegan_cibum/ui/home/widgets/home_screen.dart';
+import 'package:go_router/go_router.dart';
+import 'package:vegan_cibum/routing/routes.dart';
 
 class AuthGate extends StatelessWidget {
   const AuthGate({super.key});
@@ -16,8 +17,13 @@ class AuthGate extends StatelessWidget {
             providers: [
               EmailAuthProvider(),
             ],
+            actions: [
+              AuthStateChangeAction<SignedIn>((context, state) {
+                context.go(MyRoutes.homePage); 
+              }),
+            ],
           );
-        } return HomeScreen();
+        } return const SizedBox.shrink();
       },
     );
   }

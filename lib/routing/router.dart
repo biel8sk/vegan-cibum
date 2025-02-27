@@ -11,11 +11,12 @@ import 'package:vegan_cibum/ui/recipe_datail_page/widgets/recipe_datail_page.dar
 import 'package:vegan_cibum/ui/recipes_search/widgets/search_recipe_page.dart';
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'root');
+final _authNotifier = AuthNotifier();
 
 final router = GoRouter(
   navigatorKey: _rootNavigatorKey,
   initialLocation: MyRoutes.homePage,
-  refreshListenable: AuthNotifier(FirebaseAuth.instance.authStateChanges()),
+  refreshListenable: _authNotifier,
   routes: [
 
     GoRoute(
