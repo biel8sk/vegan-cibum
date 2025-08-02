@@ -22,7 +22,6 @@ class PerfilPage extends StatelessWidget {
               color: Colors.white70,
             ),
             onPressed: () {
-              // Aqui chamaria a ViewModel para alternar o modo
               context.read<SheredViewModel>().toggleTheme();
             },
           ),
