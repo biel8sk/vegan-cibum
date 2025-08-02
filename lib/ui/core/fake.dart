@@ -2,6 +2,7 @@ import 'package:vegan_cibum/domain/entities/nutrient_entity.dart';
 import 'package:vegan_cibum/domain/entities/nutrition_entity.dart';
 import 'package:vegan_cibum/domain/entities/recipe_entity.dart';
 import 'package:vegan_cibum/domain/entities/recipe_information_entity.dart';
+import 'package:vegan_cibum/domain/entities/steps_recipe.dart';
 
 final List<Nutrient> sampleNutrients = [
   Nutrient(title: "Proteína", amount: 25.0, unit: "g", percentOfDailyNeeds: 50.0),
@@ -11,13 +12,22 @@ final List<Nutrient> sampleNutrients = [
   Nutrient(title: "Açúcar", amount: 12.0, unit: "g", percentOfDailyNeeds: 10.0),
 ];
 
+final List<StepsRecipe> steps = [
+  StepsRecipe(id: 1, content: "Jute todos os ingredientes"),
+  StepsRecipe(id: 2, content: "Pré-aqueça o fogo"),
+  StepsRecipe(id: 3, content: "Jogue na panela"),
+  StepsRecipe(id: 3, content: "Espere cozinhar"),
+  
+
+];
+
 final Nutrition sampleNutrition = Nutrition(nutrients: sampleNutrients);
 
 final RecipeInformation sampleRecipeInformation = RecipeInformation(
   id: 1,
   title: "Salada de Grão-de-Bico",
   image: "https://th.bing.com/th/id/OIP.teYq_7TsphOkTiQgnpW3kQHaFj?rs=1&pid=ImgDetMain",
-  instructions: "Misture todos os ingredientes e sirva gelado.",
+  instructions: steps,
   extendedIngredients: ["Grão-de-bico", "Tomate", "Cebola", "Azeite", "Sal"],
   nutrition: sampleNutrition,
   summary: "Uma salada saudável e nutritiva.",
