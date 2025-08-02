@@ -41,7 +41,7 @@ final router = GoRouter(
           routes: [
             GoRoute(
               path: MyRoutes.searchPage,
-              builder: (context, state) => SearchRecipePage(),
+              builder: (context, state) => const SearchRecipePage(),
               routes: [
                 GoRoute(
                   path: ':recipeId',
@@ -61,14 +61,6 @@ final router = GoRouter(
             GoRoute(
               path: MyRoutes.profilePage,
               builder: (context, state) => const PerfilPage(),
-              /* routes: [
-                GoRoute(
-                  path: MyRoutes.profilePage,
-                  builder: (context, state) => ProfilePage(
-                    user: state.extra as User,
-                  )
-                ),
-              ],  */
             ),
           ],
         ),
