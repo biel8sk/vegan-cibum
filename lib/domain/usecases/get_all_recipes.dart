@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:vegan_cibum/data/repository/i_recipe_repository.dart';
 import 'package:vegan_cibum/domain/entities/recipe_entity.dart';
 
@@ -10,10 +11,10 @@ class GetAllRecipes {
       final result = await repository.fetchRecipe(qnt);
       return result;
     } on Exception catch (e) {
-      print("Erro ao pegar receitas: $e");
+      debugPrint("Erro ao pegar receitas: $e");
       return [];
     }catch (e){
-      print("Erro desconhecido");
+      debugPrint("Erro desconhecido");
       return [];
     }
   }
