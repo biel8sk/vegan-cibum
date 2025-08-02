@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vegan_cibum/domain/entities/recipe_information_entity.dart';
 import 'package:vegan_cibum/ui/core/fake.dart';
+import 'package:vegan_cibum/ui/recipe_datail_page/widgets/instructions_widget.dart';
 import 'package:vegan_cibum/ui/recipe_datail_page/widgets/nutrition_widget.dart';
 
 class DetailsWidget extends StatelessWidget {
@@ -59,7 +60,7 @@ class DetailsWidget extends StatelessWidget {
                           child: Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Text('- $ingredient',
-                                    style: TextStyle(fontSize: 16)),
+                                    style: const TextStyle(fontSize: 16)),
                               ),
                         )),
                   ],
@@ -82,7 +83,9 @@ class DetailsWidget extends StatelessWidget {
                         ? const Center(child:  Text("Sem instruções"))
                         : SizedBox(
                             width: 400,
-                            child: Text(recipeInformation.instructions!),
+                            child: Column(
+                              children: recipeInformation.instructions!.map((step) => InstructionsWidget(step: step,)).toList(),
+                            ),
                           ),
                   ],
                 ),
