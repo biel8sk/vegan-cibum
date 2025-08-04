@@ -9,6 +9,7 @@ class InstructionsWidget extends StatelessWidget {
    Widget build(BuildContext context) {
        return ListTile(
         leading: CircleAvatar(
+          backgroundColor: Colors.brown.shade800,
           child: Text(step.id.toString()),
         ),
         title: Text(step.content),
