@@ -17,12 +17,10 @@ final router = GoRouter(
   initialLocation: MyRoutes.homePage,
   refreshListenable: _authNotifier,
   routes: [
-
     GoRoute(
       path: MyRoutes.signIn,
-      builder: (context, state) => const AuthGate(), // Ou SignInScreen diretamente
+      builder: (context, state) => const AuthGate(), // Sua página de login
     ),
-
     StatefulShellRoute.indexedStack(
       builder: (context, state, navigationShell) => ScaffoldPage(
         navigationShell: navigationShell, 
@@ -54,7 +52,6 @@ final router = GoRouter(
             ),
           ],
         ),
-        
         StatefulShellBranch(
           routes: [
             GoRoute(
@@ -62,6 +59,7 @@ final router = GoRouter(
               builder: (context, state) =>  const AuthGate(),
             ),
           ],
+          
         ),
       ],
       redirect: (BuildContext context, GoRouterState state) {
@@ -76,9 +74,8 @@ final router = GoRouter(
           return MyRoutes.homePage; // retorna página home se está autenticado e tenta acessar o login
         }
 
-        return null; // não redireciona nada se estiver tudo ok
+        return null;
       }
     ),
-    
   ],
 );

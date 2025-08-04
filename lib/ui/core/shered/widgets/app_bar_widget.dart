@@ -27,7 +27,6 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
               color: Colors.white70,
             ),
             onPressed: () {
-              // Aqui chamaria a ViewModel para alternar o modo
               context.read<SheredViewModel>().toggleTheme();
             },
           ),
