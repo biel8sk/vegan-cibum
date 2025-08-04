@@ -3,6 +3,7 @@ import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:vegan_cibum/routing/routes.dart';
+import 'package:vegan_cibum/ui/auth/widgets/perfil_page.dart';
 
 class AuthGate extends StatelessWidget {
   const AuthGate({super.key});
@@ -23,7 +24,7 @@ class AuthGate extends StatelessWidget {
               }),
             ],
           );
-        } return const SizedBox.shrink();
+        } return const PerfilPage();
       },
     );
   }
