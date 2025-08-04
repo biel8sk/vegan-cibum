@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:vegan_cibum/ui/core/shered/widgets/app_bar_widget.dart';
 import 'package:vegan_cibum/ui/core/shered/theme/theme.dart';
+import 'package:vegan_cibum/ui/home/widgets/text_decoration_plate_of_day.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -46,19 +46,27 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
-            Positioned(
+            const Positioned(
                 bottom: 20,
                 left: 40,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    buildPlateOfDay("Prato do dia", 35),
-                    buildPlateOfDay("Strogonoff de cogumello", 25),
-                    buildPlateOfDay("50 min | Dificuldade: fácil", 18)
+                    TextDecorationPlateOfDay(content: "Prato do dia",size:  35),
+                    TextDecorationPlateOfDay(content: "Strogonoff de cogumello",size:  25),
+                    TextDecorationPlateOfDay(content: "50 min | Dificuldade: fácil",size:  18)
                   ],
                 )),
           ]),
           // categorias
+
+          const Row(
+            children: [
+              Chip(
+                label: Text("Rápidos"),
+              )
+            ],
+          ),          
           Expanded(
             child: ListView(
               children: [
@@ -99,20 +107,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
-Widget buildPlateOfDay(String text, double fontSize) {
-  return TextButton(
-    onPressed: () {
-      // chama a receita do dia
-    },
-    child: Text(
-      text,
-      style: GoogleFonts.jimNightshade(
-        fontSize: fontSize,
-        color: Colors.white,
-      ),
-    ),
-  );
-}
+
 
 Widget _buildCategoryFood(
   BuildContext context, {
