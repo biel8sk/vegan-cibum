@@ -5,7 +5,6 @@ import 'package:vegan_cibum/app/scaffold_page.dart';
 import 'package:vegan_cibum/routing/routes.dart';
 import 'package:vegan_cibum/ui/auth/view_model/auth_notifier.dart';
 import 'package:vegan_cibum/ui/auth/widgets/auth_gate.dart';
-import 'package:vegan_cibum/ui/auth/widgets/perfil_page.dart';
 import 'package:vegan_cibum/ui/home/widgets/home_screen.dart';
 import 'package:vegan_cibum/ui/recipe_datail_page/widgets/recipe_datail_page.dart';
 import 'package:vegan_cibum/ui/recipes_search/widgets/search_recipe_page.dart';
@@ -60,7 +59,7 @@ final router = GoRouter(
           routes: [
             GoRoute(
               path: MyRoutes.profilePage,
-              builder: (context, state) => const PerfilPage(),
+              builder: (context, state) =>  const AuthGate(),
             ),
           ],
         ),
