@@ -31,9 +31,6 @@ class _RecipeDetailPageState extends State<RecipeDetailPage> {
     return Consumer<RecipeDetailViewModel>(
       builder: (context, viewModel, child) => 
       Scaffold(
-        appBar: AppBar(
-          title: const Text('Detalhes da Receita'),
-        ),
         body: viewModel.isLoading
             ? const Center(child: CircularProgressIndicator())
             : viewModel.errorMessage != null
