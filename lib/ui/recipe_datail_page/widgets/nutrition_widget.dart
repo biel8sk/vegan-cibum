@@ -8,6 +8,7 @@ class NutritionWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+      shrinkWrap: true,
       itemCount: nutrients.length,
       itemBuilder: (context, index) {
         return Padding(
