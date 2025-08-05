@@ -18,6 +18,12 @@ final mytheme = ThemeData(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
     ),
   ),
+  iconButtonTheme:const IconButtonThemeData(
+    style: ButtonStyle(
+      backgroundColor: WidgetStatePropertyAll(Colors.green) ,
+      foregroundColor:  WidgetStatePropertyAll(Colors.white) ,
+    )
+  ),
   appBarTheme: const AppBarTheme(
     backgroundColor: Colors.green,
     elevation: 0,
