@@ -8,8 +8,10 @@ final mytheme = ThemeData(
     seedColor: Colors.green,
     brightness: Brightness.light,
   ),
-  scaffoldBackgroundColor: Colors.white,
-  textTheme: GoogleFonts.indieFlowerTextTheme(),
+  scaffoldBackgroundColor: const Color.fromARGB(255, 158, 255, 155),
+  textTheme: GoogleFonts.indieFlowerTextTheme(
+
+  ),
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
       backgroundColor: Colors.green,
@@ -34,6 +36,7 @@ final mytheme = ThemeData(
       color: Colors.white,
     ),
   ),
+  
 );
 
 final darkTheme = ThemeData(
