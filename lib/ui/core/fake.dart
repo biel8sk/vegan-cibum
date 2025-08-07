@@ -13,10 +13,10 @@ final List<Nutrient> sampleNutrients = [
 ];
 
 final List<StepsRecipe> steps = [
-  StepsRecipe(id: 1, content: "Jute todos os ingredientes"),
-  StepsRecipe(id: 2, content: "Pré-aqueça o fogo"),
-  StepsRecipe(id: 3, content: "Jogue na panela"),
-  StepsRecipe(id: 3, content: "Espere cozinhar"),
+  StepsRecipe(id: 1, content: "Jute todos os ingredientes", isCompleted: false),
+  StepsRecipe(id: 2, content: "Pré-aqueça o fogo",isCompleted: false),
+  StepsRecipe(id: 3, content: "Jogue na panela",isCompleted: false),
+  StepsRecipe(id: 3, content: "Espere cozinhar",isCompleted: false),
   
 
 ];
