@@ -5,7 +5,11 @@ sealed class User {
   
   factory User.createAdmin({required List<String> permissions}) = Admin;
   
-  factory User.createCommonUser({required String username}) = CommonUser;
+  factory User.createCommonUser({
+    required String username, 
+    required String email, 
+    required String photo, 
+    required List<Recipe> recipes}) = CommonUser;
   
   factory User.createAnonymousUser() = AnonymousUser;
 }
